@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vihanga Kulasekara - DevOps Engineer | Software Engineer | MSc Computer Science | Infrastructure as Code | CI/CD | Kubernetes">
+    <meta name="keywords" content="Software Engineer, Full-Stack Developer, Oracle, PHP, Python, JavaScript">
+    <meta name="author" content="Vihanga Kulasekara">
+    <title>Vihanga Kulasekara | Software Engineer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/kulasekara02.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Devicon for tech icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <style>
+        :root {
+            --primary: #6AD3F7;
+            --secondary: #8B5CF6;
+            --accent: #EC4899;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --bg-primary: #0D1117;
+            --bg-secondary: #161B22;
+            --bg-tertiary: #21262D;
+            --bg-card: rgba(22, 27, 34, 0.8);
+            --text-primary: #F0F6FC;
+            --text-secondary: #8B949E;
+            --text-muted: #6E7681;
+            --border-color: #30363D;
+            --border-highlight: rgba(106, 211, 247, 0.3);
+            --glow-primary: rgba(106, 211, 247, 0.15);
+            --glow-secondary: rgba(139, 92, 246, 0.15);
+            --gradient-1: linear-gradient(135deg, #6AD3F7, #8B5CF6, #EC4899);
+            --gradient-2: linear-gradient(90deg, #6AD3F7, #8B5CF6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Background Effects */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 25% 25%, var(--glow-primary) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, var(--glow-secondary) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header Banner */
+        .header-banner {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg,
+                #667eea 0%,
+                #764ba2 25%,
+                #6B8DD6 50%,
+                #8E37D7 75%,
+                #667eea 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--border-color);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .profile-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .badge i {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--glow-primary);
+        }
+
+        /* Content Area */
+        .content-area {
+            min-width: 0;
+        }
+
+        /* Typing Animation */
+        .typing-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .typing-text {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* About Card */
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item i {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            color: var(--primary);
+        }
+
+        .info-item .info-content {
+            flex: 1;
+        }
+
+        .info-item .info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item .info-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--glow-primary);
+        }
+
+        .tech-badge i {
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--border-highlight);
+            box-shadow: 0 10px 40px var(--glow-primary);
+        }
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-category-header i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-category-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .skill-level {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-2);
+            border-radius: 4px;
+            transition: width 1.5s ease;
+        }
+
+        /* Progress Badges */
+        .progress-badges {
+            display: flex;
+            gap: 0.3rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+        }
+
+        .progress-filled {
+            color: var(--primary);
+        }
+
+        .progress-empty {
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--bg-primary);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--border-highlight);
+            transform: translateX(5px);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--bg-tertiary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* GitHub Stats */
+        .github-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .github-stats img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .github-stats-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--glow-primary);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a,
+        .contact-card p {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .cta-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 30px var(--glow-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--glow-primary);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--bg-primary);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px var(--glow-primary);
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                position: static;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .github-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .header-content p {
+                font-size: 0.9rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <!-- Header Banner -->
+    <header class="header-banner">
+        <div class="header-content">
+            <h1>Vihanga Kulasekara</h1>
+            <p>DevOps Engineer | Software Engineer | MSc Computer Science</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">VK</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="profile-section">
+            <!-- Profile Card -->
+            <aside class="profile-card fade-in">
+                <div class="profile-image">
+                    <img src="assets/img/profile.jpg" alt="Vihanga Kulasekara" onerror="this.src='https://github.com/kulasekara02.png'">
+                </div>
+                <h1 class="profile-name">Vihanga Kulasekara</h1>
+                <p class="profile-title">DevOps & Software Engineer</p>
+
+                <div class="profile-badges">
+                    <span class="badge"><i class="fas fa-map-marker-alt"></i> Riga, Latvia</span>
+                    <span class="badge"><i class="fas fa-graduation-cap"></i> MSc CS</span>
+                    <span class="badge"><i class="fas fa-briefcase"></i> 3+ Years</span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/kulasekara02" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vihanga-dasun/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/kulasekara99" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://discord.com/users/kule5477" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="mailto:kule99@outlook.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Typing Animation -->
+                <div class="typing-container fade-in">
+                    <span class="typing-text" id="typingText"></span>
+                </div>
+
+                <!-- Tech Stack Icons -->
+                <div class="tech-stack fade-in">
+                    <a href="#skills" class="tech-badge"><i class="devicon-oracle-original colored"></i> Oracle</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-php-plain colored"></i> PHP</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-python-plain colored"></i> Python</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-javascript-plain colored"></i> JavaScript</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-go-original-wordmark colored"></i> Go</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-bash-plain"></i> Bash</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-linux-plain"></i> Linux</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-docker-plain colored"></i> Docker</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-kubernetes-plain colored"></i> Kubernetes</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-terraform-plain colored"></i> Terraform</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-ansible-plain colored"></i> Ansible</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-jenkins-plain colored"></i> Jenkins</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-githubactions-plain colored"></i> GitHub Actions</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-gitlab-plain colored"></i> GitLab CI</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-prometheus-original colored"></i> Prometheus</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-grafana-original colored"></i> Grafana</a>
+                    <a href="#skills" class="tech-badge"><i class="devicon-git-plain colored"></i> Git</a>
+                </div>
+
+                <!-- About Section -->
+                <section id="about" class="section fade-in">
+                    <div class="section-header">
+                        <i class="fas fa-user"></i>
+                        <h2>About Me</h2>
+                    </div>
+
+                    <div class="about-card">
+                        <p>
+                            I am a <span class="highlight">Software Engineer</span> with nearly <span class="highlight">3 years</span> of hands-on experience in web development, API integration, and database management. Currently pursuing my <span class="highlight">Master's in Computer Science</span> at the Transport and Telecommunication Institute in Riga, Latvia.
+                        </p>
+                        <p>
+                            At <span class="highlight">Ceylinco General Insurance</span>, I worked extensively with Oracle technologies including databases, PL/SQL packages, functions, triggers, and complex SQL queries. My expertise spans PHP frameworks, Python development, API integration, and modern web development practices.
+                        </p>
+                        <p>
+                            I'm passionate about building innovative software solutions that address real-world challenges while enhancing user experiences. Committed to ethical technology application and continuously staying updated with industry trends.
+                        </p>
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div class="info-content">
+                                    <div class="info-label">Education</div>
+                                    <div class="info-value">MSc Computer Science</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-building"></i>
+                                <div class="info-content">
+                                    <div class="info-label">Experience</div>
+                                    <div class="info-value">Ceylinco General (2022-2024)</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="info-content">
+                                    <div class="info-label">Location</div>
+                                    <div class="info-value">Riga, Latvia</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="info-content">
+                                    <div class="info-label">Email</div>
+                                    <div class="info-value">kule99@outlook.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills" class="section fade-in">
+                    <div class="section-header">
+                        <i class="fas fa-code"></i>
+                        <h2>Technical Arsenal</h2>
+                    </div>
+
+                    <div class="skills-grid">
+                        <!-- Infrastructure as Code -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-layer-group"></i>
+                                <h3>Infrastructure as Code (IaC)</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Terraform</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Ansible</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">CloudFormation</span>
+                                    <span class="skill-level">Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CI/CD Pipelines -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-rocket"></i>
+                                <h3>CI/CD Pipelines</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">GitHub Actions</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Jenkins</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">GitLab CI/CD</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Containerization & Orchestration -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-cubes"></i>
+                                <h3>Containerization & Orchestration</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Docker</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Kubernetes</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Docker Compose</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scripting & Programming -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-terminal"></i>
+                                <h3>Scripting & Programming</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Bash Scripting</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Go</span>
+                                    <span class="skill-level">Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Linux & System Admin -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fab fa-linux"></i>
+                                <h3>Linux & System Administration</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Linux Server Management</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Shell Administration</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Networking & Security</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Monitoring & Logging -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>Monitoring & Logging</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Prometheus</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Grafana</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">ELK Stack</span>
+                                    <span class="skill-level">Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Version Control -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-code-branch"></i>
+                                <h3>Version Control & Collaboration</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">GitHub / GitLab</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git Flow / Branching</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Database Engineering -->
+                        <div class="skill-category">
+                            <div class="skill-category-header">
+                                <i class="fas fa-database"></i>
+                                <h3>Database Engineering</h3>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Oracle PL/SQL</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">PostgreSQL</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section id="experience" class="section fade-in">
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Professional Journey</h2>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2024 - Present</span>
+                                <h3 class="timeline-title">MSc Computer Science</h3>
+                                <p class="timeline-subtitle">Transport and Telecommunication Institute, Latvia</p>
+                                <p class="timeline-description">Advanced studies in computer science, focusing on cutting-edge technologies, research methodologies, and software engineering practices.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">March 2022 - February 2024</span>
+                                <h3 class="timeline-title">Trainee Software Engineer</h3>
+                                <p class="timeline-subtitle">Ceylinco General Insurance PLC, Sri Lanka</p>
+                                <p class="timeline-description">Developed inter-company web applications using PHP. Created and optimized Oracle PL/SQL databases with functions, triggers, and packages. Integrated REST APIs for system connectivity. Managed large-scale database tables and operated in Linux environments.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">October 2019 - October 2022</span>
+                                <h3 class="timeline-title">BSc (Hons) Software Engineering</h3>
+                                <p class="timeline-subtitle">Cardiff Metropolitan University</p>
+                                <p class="timeline-description">Second Class Honours. Acquired solid foundation in advanced programming, computer networks, computational intelligence, business analytics, and computer ethics.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">February 2018 - October 2019</span>
+                                <h3 class="timeline-title">Higher Diploma in Computing & SE</h3>
+                                <p class="timeline-subtitle">ICBT Campus, Sri Lanka</p>
+                                <p class="timeline-description">Foundation studies in computing principles, software engineering fundamentals, and development methodologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GitHub Stats Section -->
+                <section id="github" class="section fade-in">
+                    <div class="section-header">
+                        <i class="fab fa-github"></i>
+                        <h2>GitHub Analytics</h2>
+                    </div>
+
+                    <div class="github-stats">
+                        <img src="https://github-readme-stats.vercel.app/api?username=kulasekara02&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6AD3F7&icon_color=6AD3F7&text_color=ffffff&ring_color=6AD3F7" alt="GitHub Stats">
+                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=kulasekara02&theme=tokyonight&hide_border=true&background=0D1117&stroke=6AD3F7&ring=6AD3F7&fire=EC4899&currStreakLabel=6AD3F7" alt="GitHub Streak">
+                        <img class="github-stats-full" src="https://github-readme-activity-graph.vercel.app/graph?username=kulasekara02&bg_color=0D1117&color=6AD3F7&line=8B5CF6&point=FFFFFF&area=true&hide_border=true" alt="GitHub Activity Graph">
+                    </div>
+
+                    <!-- GitHub Trophies -->
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <img src="https://github-profile-trophy.vercel.app/?username=kulasekara02&theme=algolia&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies" style="max-width: 100%;">
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="section fade-in">
+                    <div class="section-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>Get In Touch</h2>
+                    </div>
+
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Location</h3>
+                            <p>Riga, Latvia</p>
+                            <p>Colombo, Sri Lanka</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <a href="mailto:kule99@outlook.com">kule99@outlook.com</a>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Phone</h3>
+                            <a href="tel:+37128698203">+371 28 698 203</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <div class="cta-section fade-in">
+                    <h3>Open for Opportunities</h3>
+                    <p>I'm actively seeking DevOps & Software Engineering roles in:</p>
+                    <div class="cta-tags">
+                        <span class="cta-tag">DevOps Engineering</span>
+                        <span class="cta-tag">Infrastructure as Code</span>
+                        <span class="cta-tag">CI/CD Pipelines</span>
+                        <span class="cta-tag">Containerization</span>
+                        <span class="cta-tag">Cloud Infrastructure</span>
+                        <span class="cta-tag">Site Reliability Engineering</span>
+                        <span class="cta-tag">Platform Engineering</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="mailto:kule99@outlook.com" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                        <a href="https://github.com/kulasekara02" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://github.com/kulasekara02" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vihanga-dasun/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/kulasekara99" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/kule__xx/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://discord.com/users/kule5477" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+        <p>&copy; 2024 Vihanga Kulasekara. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Typing Animation
+        const typingTexts = [
+            "Building Scalable Infrastructure with IaC",
+            "Terraform | Ansible | Docker | Kubernetes",
+            "CI/CD Expert: Jenkins | GitHub Actions | GitLab",
+            "DevOps Engineer & Full-Stack Developer",
+            "Monitoring with Prometheus, Grafana & ELK Stack",
+            "Automating Everything with Python, Bash & Go"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeText() {
+            const currentText = typingTexts[textIndex];
+
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 30 : 80;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeText, typeSpeed);
+        }
+
+        typeText();
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Fade In Animation on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
