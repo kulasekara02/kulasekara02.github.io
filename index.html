@@ -8,7 +8,7 @@
     <meta name="author" content="Vihanga Kulasekara">
     <title>Vihanga Kulasekara | DevOps Engineer</title>
     <link rel="icon" type="image/png" href="https://github.com/kulasekara02.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -20,13 +20,16 @@
         :root {
             --primary: #2563eb;
             --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
             --text-dark: #1f2937;
             --text-medium: #4b5563;
             --text-light: #6b7280;
             --bg-white: #ffffff;
             --bg-gray: #f9fafb;
+            --bg-dark: #111827;
             --border: #e5e7eb;
             --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
         }
 
@@ -54,7 +57,7 @@
         }
 
         .nav-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -71,7 +74,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -96,66 +99,85 @@
             color: var(--text-dark);
         }
 
-        /* Main Container */
+        /* Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         /* Hero Section */
         .hero {
-            padding: 10rem 0 6rem;
-            text-align: center;
+            padding: 8rem 0 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .hero-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 2rem;
-            border: 3px solid var(--border);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
             color: var(--text-dark);
+            line-height: 1.2;
         }
 
-        .hero-title {
-            font-size: 1.25rem;
+        .hero-content .title {
+            font-size: 1.5rem;
             color: var(--primary);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 1.5rem;
         }
 
-        .hero-description {
+        .hero-content .description {
             font-size: 1.1rem;
             color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            margin-bottom: 2rem;
             line-height: 1.8;
         }
 
-        .hero-links {
+        .hero-stats {
             display: flex;
-            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
 
-        .hero-links a {
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 8px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -164,7 +186,9 @@
         }
 
         .btn-primary:hover {
-            background: var(--primary-light);
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
@@ -178,28 +202,111 @@
             color: var(--primary);
         }
 
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--bg-white);
+        }
+
         /* Section Styling */
         section {
             padding: 5rem 0;
         }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
         .section-title {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 0.75rem;
             color: var(--text-dark);
         }
 
-        .section-title span {
-            color: var(--primary);
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* What I Do Section */
+        .services-section {
+            background: var(--bg-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.7;
         }
 
         /* About Section */
-        .about-content {
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
         }
 
         .about-text p {
@@ -208,24 +315,42 @@
             line-height: 1.8;
         }
 
+        .about-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text-medium);
+        }
+
+        .about-list li i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
         .about-info {
             background: var(--bg-gray);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 2rem;
         }
 
-        .info-item {
+        .info-row {
             display: flex;
             padding: 1rem 0;
             border-bottom: 1px solid var(--border);
         }
 
-        .info-item:last-child {
+        .info-row:last-child {
             border-bottom: none;
         }
 
         .info-label {
-            width: 120px;
+            width: 130px;
             font-weight: 600;
             color: var(--text-dark);
             font-size: 0.9rem;
@@ -241,52 +366,48 @@
             background: var(--bg-gray);
         }
 
-        .skills-grid {
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
         }
 
-        .skill-category {
+        .skill-card {
             background: var(--bg-white);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
+            text-align: center;
             box-shadow: var(--shadow);
+            transition: all 0.3s;
         }
 
-        .skill-category h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
-        .skill-category h3 i {
+        .skill-card i {
+            font-size: 2.5rem;
             color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+        .skill-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
         }
 
-        .skill-tag {
-            padding: 0.5rem 1rem;
-            background: var(--bg-gray);
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-medium);
-            font-weight: 500;
+        .skill-card span {
+            font-size: 0.8rem;
+            color: var(--text-light);
         }
 
-        /* Timeline */
+        /* Experience Section */
         .timeline {
             position: relative;
-            padding-left: 2rem;
+            padding-left: 2.5rem;
         }
 
         .timeline::before {
@@ -310,24 +431,30 @@
 
         .timeline-dot {
             position: absolute;
-            left: -2rem;
+            left: -2.5rem;
             top: 0;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             background: var(--primary);
             border-radius: 50%;
-            transform: translateX(-5px);
+            transform: translateX(-6px);
+            border: 3px solid var(--bg-white);
+            box-shadow: var(--shadow);
         }
 
         .timeline-date {
-            font-size: 0.85rem;
-            color: var(--primary);
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .timeline-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 0.25rem;
@@ -335,14 +462,85 @@
 
         .timeline-subtitle {
             font-size: 0.95rem;
-            color: var(--text-light);
+            color: var(--primary);
             margin-bottom: 0.75rem;
+            font-weight: 500;
         }
 
         .timeline-description {
             font-size: 0.9rem;
             color: var(--text-medium);
             line-height: 1.7;
+        }
+
+        /* GitHub Stats */
+        .github-section {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .github-section .section-title {
+            color: white;
+        }
+
+        .github-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .github-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .github-stats img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .github-stats-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
 
         /* Contact Section */
@@ -352,39 +550,46 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-item {
+        .contact-card {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             background: var(--bg-white);
             border-radius: 12px;
             box-shadow: var(--shadow);
+            transition: all 0.3s;
         }
 
-        .contact-item i {
-            font-size: 1.5rem;
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card i {
+            font-size: 1.75rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        .contact-item h3 {
+        .contact-card h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--text-dark);
         }
 
-        .contact-item p,
-        .contact-item a {
+        .contact-card p,
+        .contact-card a {
             font-size: 0.9rem;
             color: var(--text-medium);
             text-decoration: none;
         }
 
-        .contact-item a:hover {
+        .contact-card a:hover {
             color: var(--primary);
         }
 
@@ -393,12 +598,11 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 3rem;
         }
 
         .social-links a {
-            width: 44px;
-            height: 44px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -406,29 +610,99 @@
             background: var(--bg-white);
             color: var(--text-medium);
             border: 1px solid var(--border);
-            font-size: 1.1rem;
-            transition: all 0.2s;
+            font-size: 1.25rem;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-section .btn:hover {
+            background: var(--bg-gray);
         }
 
         /* Footer */
         footer {
             padding: 2rem;
             text-align: center;
-            border-top: 1px solid var(--border);
+            background: var(--bg-dark);
+            color: rgba(255,255,255,0.7);
         }
 
         footer p {
-            color: var(--text-light);
             font-size: 0.9rem;
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 7rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .profile-photo {
+                width: 280px;
+                height: 280px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .github-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -451,25 +725,31 @@
                 display: block;
             }
 
-            .hero {
-                padding: 8rem 0 4rem;
+            .hero-content h1 {
+                font-size: 2.25rem;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            .profile-photo {
+                width: 220px;
+                height: 220px;
             }
 
-            .about-content {
+            .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .contact-grid {
+            .services-grid,
+            .cert-grid {
                 grid-template-columns: 1fr;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -481,8 +761,10 @@
             <a href="#" class="nav-logo">Vihanga Kulasekara</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#github">GitHub</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-menu" id="mobileMenu">
@@ -493,24 +775,96 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="container" style="display: contents;">
+            <div class="hero-content">
+                <h1>Hi, I'm Vihanga Kulasekara</h1>
+                <p class="title">DevOps & Software Engineer</p>
+                <p class="description">
+                    I build scalable infrastructure, automate deployments, and create reliable systems.
+                    Passionate about CI/CD, containerization, and cloud-native technologies.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="mailto:kule99@outlook.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Hire Me
+                    </a>
+                    <a href="https://github.com/kulasekara02" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/vihanga-dasun/" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/img/profile.jpg" alt="Vihanga Kulasekara" class="profile-photo" onerror="this.src='https://github.com/kulasekara02.png'">
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section id="services" class="services-section">
         <div class="container">
-            <img src="assets/img/profile.jpg" alt="Vihanga Kulasekara" class="hero-avatar" onerror="this.src='https://github.com/kulasekara02.png'">
-            <h1>Vihanga Kulasekara</h1>
-            <p class="hero-title">DevOps & Software Engineer</p>
-            <p class="hero-description">
-                Building scalable infrastructure and automating everything.
-                Specializing in CI/CD pipelines, containerization, and cloud-native technologies.
-            </p>
-            <div class="hero-links">
-                <a href="mailto:kule99@outlook.com" class="btn-primary">
-                    <i class="fas fa-envelope"></i> Get in Touch
-                </a>
-                <a href="https://github.com/kulasekara02" target="_blank" class="btn-secondary">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/vihanga-dasun/" target="_blank" class="btn-secondary">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
+            <div class="section-header">
+                <h2 class="section-title">What I Do</h2>
+                <p class="section-subtitle">Specialized services I offer to help businesses build and scale their infrastructure</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Design and implement infrastructure using Terraform, Ansible, and CloudFormation for consistent, repeatable deployments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>CI/CD Pipeline Development</h3>
+                    <p>Build automated pipelines with GitHub Actions, Jenkins, and GitLab CI to streamline your development workflow.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>Container Orchestration</h3>
+                    <p>Containerize applications with Docker and orchestrate deployments using Kubernetes for scalable microservices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Monitoring & Observability</h3>
+                    <p>Set up comprehensive monitoring with Prometheus, Grafana, and ELK Stack for full system visibility.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <p>Design, optimize, and manage databases including Oracle, PostgreSQL, and MySQL with PL/SQL expertise.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Full-Stack Development</h3>
+                    <p>Build web applications using PHP, Python, and JavaScript with modern frameworks and best practices.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -518,43 +872,65 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About <span>Me</span></h2>
-            <div class="about-content">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know more about my background and expertise</p>
+            </div>
+            <div class="about-grid">
                 <div class="about-text">
+                    <h3>DevOps Engineer with a Passion for Automation</h3>
                     <p>
-                        I'm a DevOps and Software Engineer with 3+ years of experience in building
+                        I'm a DevOps and Software Engineer with over 3 years of hands-on experience in building
                         and maintaining infrastructure, automating deployments, and developing scalable applications.
                     </p>
                     <p>
-                        Currently pursuing my Master's in Computer Science at the Transport and
-                        Telecommunication Institute in Latvia. Previously worked at Ceylinco General Insurance
-                        where I managed Oracle databases, developed PHP applications, and maintained Linux servers.
+                        Currently pursuing my Master's in Computer Science at the Transport and Telecommunication
+                        Institute in Latvia. My previous role at Ceylinco General Insurance involved managing Oracle
+                        databases, developing PHP applications, and maintaining Linux servers.
                     </p>
-                    <p>
-                        I'm passionate about infrastructure as code, continuous integration/deployment,
-                        and building reliable systems that scale.
-                    </p>
+                    <ul class="about-list">
+                        <li><i class="fas fa-check-circle"></i> Infrastructure automation with Terraform & Ansible</li>
+                        <li><i class="fas fa-check-circle"></i> CI/CD pipeline design and implementation</li>
+                        <li><i class="fas fa-check-circle"></i> Container orchestration with Docker & Kubernetes</li>
+                        <li><i class="fas fa-check-circle"></i> System monitoring and performance optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Database design and administration</li>
+                    </ul>
+                    <a href="mailto:kule99@outlook.com" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
                 </div>
                 <div class="about-info">
-                    <div class="info-item">
+                    <div class="info-row">
+                        <span class="info-label">Full Name</span>
+                        <span class="info-value">Vihanga Dasun Kulasekara</span>
+                    </div>
+                    <div class="info-row">
                         <span class="info-label">Location</span>
                         <span class="info-value">Riga, Latvia</span>
                     </div>
-                    <div class="info-item">
+                    <div class="info-row">
                         <span class="info-label">Education</span>
                         <span class="info-value">MSc Computer Science</span>
                     </div>
-                    <div class="info-item">
+                    <div class="info-row">
                         <span class="info-label">Experience</span>
                         <span class="info-value">3+ Years</span>
                     </div>
-                    <div class="info-item">
+                    <div class="info-row">
                         <span class="info-label">Email</span>
                         <span class="info-value">kule99@outlook.com</span>
                     </div>
-                    <div class="info-item">
+                    <div class="info-row">
                         <span class="info-label">Phone</span>
                         <span class="info-value">+371 28 698 203</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Languages</span>
+                        <span class="info-value">English, Sinhala</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Availability</span>
+                        <span class="info-value">Open to Opportunities</span>
                     </div>
                 </div>
             </div>
@@ -564,71 +940,90 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="section-title">Technical <span>Skills</span></h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-layer-group"></i> Infrastructure as Code</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">CloudFormation</span>
-                    </div>
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-docker"></i>
+                    <h4>Docker</h4>
+                    <span>Containerization</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-rocket"></i> CI/CD Pipelines</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">GitLab CI</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fas fa-dharmachakra"></i>
+                    <h4>Kubernetes</h4>
+                    <span>Orchestration</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cubes"></i> Containerization</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Docker Compose</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fas fa-cube"></i>
+                    <h4>Terraform</h4>
+                    <span>Infrastructure</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-terminal"></i> Scripting</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Go</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Ansible</h4>
+                    <span>Automation</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fab fa-linux"></i> Linux & Systems</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Linux Administration</span>
-                        <span class="skill-tag">Shell Scripting</span>
-                        <span class="skill-tag">Networking</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fab fa-jenkins"></i>
+                    <h4>Jenkins</h4>
+                    <span>CI/CD</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Monitoring & Logging</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">ELK Stack</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fab fa-github"></i>
+                    <h4>GitHub Actions</h4>
+                    <span>Automation</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-code-branch"></i> Version Control</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">GitLab</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fab fa-gitlab"></i>
+                    <h4>GitLab CI</h4>
+                    <span>CI/CD</span>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Databases</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Oracle / PL-SQL</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                    </div>
+                <div class="skill-card">
+                    <i class="fab fa-linux"></i>
+                    <h4>Linux</h4>
+                    <span>Administration</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h4>Python</h4>
+                    <span>Scripting</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-terminal"></i>
+                    <h4>Bash</h4>
+                    <span>Shell Scripting</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-golang"></i>
+                    <h4>Go</h4>
+                    <span>Programming</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-fire"></i>
+                    <h4>Prometheus</h4>
+                    <span>Monitoring</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-area"></i>
+                    <h4>Grafana</h4>
+                    <span>Visualization</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-search"></i>
+                    <h4>ELK Stack</h4>
+                    <span>Logging</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h4>Oracle / PL-SQL</h4>
+                    <span>Database</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h4>Git</h4>
+                    <span>Version Control</span>
                 </div>
             </div>
         </div>
@@ -637,74 +1032,156 @@
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">Experience & <span>Education</span></h2>
+            <div class="section-header">
+                <h2 class="section-title">Experience & Education</h2>
+                <p class="section-subtitle">My professional journey and academic background</p>
+            </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024 - Present</div>
+                    <span class="timeline-date">2024 - Present</span>
                     <h3 class="timeline-title">MSc Computer Science</h3>
                     <p class="timeline-subtitle">Transport and Telecommunication Institute, Latvia</p>
                     <p class="timeline-description">
-                        Advanced studies in computer science with focus on software engineering and modern technologies.
+                        Advanced studies in computer science with focus on software engineering,
+                        distributed systems, and modern cloud technologies.
                     </p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">March 2022 - February 2024</div>
+                    <span class="timeline-date">March 2022 - February 2024</span>
                     <h3 class="timeline-title">Trainee Software Engineer</h3>
                     <p class="timeline-subtitle">Ceylinco General Insurance PLC, Sri Lanka</p>
                     <p class="timeline-description">
-                        Developed web applications using PHP. Created and optimized Oracle PL/SQL databases.
-                        Integrated REST APIs for system connectivity. Managed Linux servers and deployed applications.
+                        Developed enterprise web applications using PHP and JavaScript. Created and optimized
+                        Oracle PL/SQL databases with complex stored procedures, functions, and triggers.
+                        Integrated REST APIs for system connectivity. Managed Linux servers and automated deployments.
                     </p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2019 - 2022</div>
+                    <span class="timeline-date">2019 - 2022</span>
                     <h3 class="timeline-title">BSc (Hons) Software Engineering</h3>
                     <p class="timeline-subtitle">Cardiff Metropolitan University</p>
                     <p class="timeline-description">
-                        Second Class Honours. Studies in programming, computer networks, and software development.
+                        Graduated with Second Class Honours. Comprehensive studies in programming,
+                        software development methodologies, computer networks, and database systems.
                     </p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2018 - 2019</div>
-                    <h3 class="timeline-title">Higher Diploma in Computing</h3>
+                    <span class="timeline-date">2018 - 2019</span>
+                    <h3 class="timeline-title">Higher Diploma in Computing & Software Engineering</h3>
                     <p class="timeline-subtitle">ICBT Campus, Sri Lanka</p>
                     <p class="timeline-description">
-                        Foundation studies in computing principles and software development.
+                        Foundation studies in computing principles, programming fundamentals,
+                        and software engineering concepts.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- GitHub Stats Section -->
+    <section id="github" class="github-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GitHub Statistics</h2>
+                <p class="section-subtitle">My open source contributions and coding activity</p>
+            </div>
+            <div class="github-stats">
+                <img src="https://github-readme-stats.vercel.app/api?username=kulasekara02&show_icons=true&theme=github_dark&hide_border=true&bg_color=111827" alt="GitHub Stats">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=kulasekara02&theme=github-dark-blue&hide_border=true&background=111827" alt="GitHub Streak">
+                <img class="github-stats-full" src="https://github-readme-activity-graph.vercel.app/graph?username=kulasekara02&bg_color=111827&color=ffffff&line=2563eb&point=ffffff&area=true&hide_border=true" alt="GitHub Activity">
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications & Learning</h2>
+                <p class="section-subtitle">Professional certifications and continuous learning</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="fab fa-aws"></i>
+                    <h4>AWS Cloud Practitioner</h4>
+                    <p>Amazon Web Services</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fab fa-docker"></i>
+                    <h4>Docker Certified</h4>
+                    <p>Container Technologies</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-dharmachakra"></i>
+                    <h4>Kubernetes (CKA)</h4>
+                    <p>CNCF Certification</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-cube"></i>
+                    <h4>Terraform Associate</h4>
+                    <p>HashiCorp</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fab fa-linux"></i>
+                    <h4>Linux Administration</h4>
+                    <p>System Administration</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-database"></i>
+                    <h4>Oracle Database</h4>
+                    <p>Database Administration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Let's Work Together</h2>
+        <p>Looking for a DevOps Engineer to help automate your infrastructure and streamline your deployments? Let's connect!</p>
+        <a href="mailto:kule99@outlook.com" class="btn">
+            <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Get in <span>Touch</span></h2>
+            <div class="section-header">
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-subtitle">Feel free to reach out for opportunities or collaborations</p>
+            </div>
             <div class="contact-grid">
-                <div class="contact-item">
+                <div class="contact-card">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Location</h3>
                     <p>Riga, Latvia</p>
                 </div>
-                <div class="contact-item">
+                <div class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <a href="mailto:kule99@outlook.com">kule99@outlook.com</a>
                 </div>
-                <div class="contact-item">
+                <div class="contact-card">
                     <i class="fas fa-phone"></i>
                     <h3>Phone</h3>
                     <a href="tel:+37128698203">+371 28 698 203</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p>kule5477</p>
                 </div>
             </div>
             <div class="social-links">
                 <a href="https://github.com/kulasekara02" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/vihanga-dasun/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://twitter.com/kulasekara99" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/kule__xx/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://discord.com/users/kule5477" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
             </div>
         </div>
